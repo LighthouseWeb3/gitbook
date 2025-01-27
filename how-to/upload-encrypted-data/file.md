@@ -81,6 +81,13 @@ function App() {
   // Define your API Key (should be replaced with secure environment variables in production)
   const apiKey = process.env.REACT_APP_API_KEY
 
+//progressCallback in percentage
+  const progressCallback = (progressData) => {
+    let percentageDone =
+      100 - (progressData?.total / progressData?.uploaded)?.toFixed(2)
+    console.log(percentageDone)
+  }
+
   // Function to sign the authentication message using Wallet
   const signAuthMessage = async () => {
     if (window.ethereum) {
